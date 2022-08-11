@@ -2,8 +2,7 @@ default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
-  lane :custom_lane_shared do
-    # add actions here: https://docs.fastlane.tools/actions
-    puts "custom lane from shared fastlane"
+  lane :custom_lane_shared_gp do
+    puts "custom lane from gp shared fastlane"
   end
 end
