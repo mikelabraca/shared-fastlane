@@ -4,5 +4,6 @@ platform :ios do
   desc "Description of what the lane does"
   lane :custom_lane_shared_gp do
     puts "custom lane from gp shared fastlane"
+    shared_gp
   end
 end
