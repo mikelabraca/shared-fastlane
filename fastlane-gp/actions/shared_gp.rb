@@ -3,7 +3,7 @@ module Fastlane
 
     class SharedGpAction < Action
       def self.run(params)
-        puts " 🟢 shared GP action"
+        UI.message "🟢 shared GP action"
       end
 
       # Documentation

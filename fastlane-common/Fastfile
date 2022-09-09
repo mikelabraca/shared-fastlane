@@ -4,6 +4,6 @@ platform :ios do
   desc "Description of what the lane does"
   lane :custom_lane_shared do
     # add actions here: https://docs.fastlane.tools/actions
-    puts "custom lane from shared fastlane"
+    UI.message "🟢 custom lane from shared fastlane"
   end
 end

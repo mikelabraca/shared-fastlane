@@ -3,7 +3,7 @@ module Fastlane
 
     class SharedTkAction < Action
       def self.run(params)
-        puts " 🟢 shared TK action"
+        UI.message "🟢 shared TK action"
       end
 
       # Documentation
