@@ -1,6 +1,6 @@
 default_platform(:ios)
 
-import '../fastlane-tk/Fastfile'
+# import '../fastlane-tk/Fastfile'
 
 platform :ios do
   desc "Description of what the lane does"
