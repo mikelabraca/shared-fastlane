@@ -1,6 +1,10 @@
 default_platform(:ios)
 
-# import '../fastlane-tk/Fastfile'
+import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
+                path: "fastlane-common/Fastfile",
+                branch: "feature/testing-local-imports")
+
+# import '/Users/miguel/Desktop/fastlane-test/shared-fastlane/fastlane-common/Fastfile'
 
 platform :ios do
   desc "Description of what the lane does"
