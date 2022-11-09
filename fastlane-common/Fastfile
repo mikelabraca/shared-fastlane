@@ -1,10 +1,36 @@
 default_platform(:ios)
 
+if ENV["local_fastlane"] == 'true'
+  import "#{ENV['local_fastlane_dir']}/fastlane-common/lanes/Certificates/Fastfile"
+  import "#{ENV['local_fastlane_dir']}/fastlane-common/lanes/AppStoreConnect/Fastfile"
+else 
+  import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
+                  path: "fastlane-common/lanes/AppStoreConnect",
+                  branch: ENV["fastlane_remote_branch"])
+
+  import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
+                  path: "fastlane-common/lanes/Certificates",
+                  branch: ENV["fastlane_remote_branch"])
+end
+
 platform :ios do
+
   desc "Description of what the lane does"
   lane :custom_lane_shared do
-    # add actions here: https://docs.fastlane.tools/actions
-    UI.message "🟢 custom lane from shared fastlane"
+    UI.message "🟢 custom lane from common fastlane"
     shared
   end
+
+  desc "Description of what the lane does"
+  lane :common_certificates_lane do
+    UI.message "🟢 calling common_certificates_lane from common"
+    certificates_lane
+  end
+
+  desc "Description of what the lane does"
+  lane :common_app_store_connect_lane do
+    UI.message "🟢 calling app_store_connect_lane from common"
+    app_store_connect_lane
+  end
+
 end

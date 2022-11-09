@@ -1,10 +1,12 @@
 default_platform(:ios)
 
-import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
-                path: "fastlane-common/Fastfile",
-                branch: "feature/testing-local-imports")
-
-# import '/Users/miguel/Desktop/fastlane-test/shared-fastlane/fastlane-common/Fastfile'
+if ENV["local_fastlane"] == 'true'
+  import "#{ENV['local_fastlane_dir']}/fastlane-common/Fastfile"
+else 
+  import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
+                  path: "fastlane-common/Fastfile",
+                  branch: ENV["fastlane_remote_branch"])
+end
 
 platform :ios do
   desc "Description of what the lane does"
@@ -12,4 +14,11 @@ platform :ios do
     UI.message "🟢 custom lane from gp shared fastlane"
     shared_gp
   end
+
+desc "Description of what the lane does"
+  lane :certificates_gp do
+    UI.message "🟢 certificates lane from gp shared fastlane"
+    certificates_lane
+  end
+  
 end

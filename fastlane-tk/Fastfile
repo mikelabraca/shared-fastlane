@@ -1,15 +1,16 @@
 default_platform(:ios)
 
-import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
-                path: "fastlane-common/Fastfile",
-                branch: "feature/testing-local-imports")
-
-# import '/Users/miguel/Desktop/fastlane-test/shared-fastlane/fastlane-common/Fastfile'
+if ENV["local_fastlane"] == 'true'
+  import "#{ENV['local_fastlane_dir']}/fastlane-common/Fastfile"
+else 
+  import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
+                  path: "fastlane-common/Fastfile",
+                  branch: ENV["fastlane_remote_branch"])
+end
 
 platform :ios do
   desc "Description of what the lane does"
   lane :custom_lane_shared_tk do
-    # add actions here: https://docs.fastlane.tools/actions
     UI.message "🟢 custom lane from tk shared fastlane"
     shared_tk
   end
