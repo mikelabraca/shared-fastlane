@@ -1,0 +1,11 @@
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Description of what the lane does"
+  lane :fastfile_certificates_lane do
+    UI.message "🟢 certificates lane from specyfic fastlane"
+    certificates
+  end
+  
+end
