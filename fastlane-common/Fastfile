@@ -5,11 +5,11 @@ if ENV["local_fastlane"] == 'true'
   import "#{ENV['local_fastlane_dir']}/fastlane-common/lanes/AppStoreConnect/Fastfile"
 else 
   import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
-                  path: "fastlane-common/lanes/AppStoreConnect",
+                  path: "fastlane-common/lanes/AppStoreConnect/Fastfile",
                   branch: ENV["fastlane_remote_branch"])
 
   import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
-                  path: "fastlane-common/lanes/Certificates",
+                  path: "fastlane-common/lanes/Certificates/Fastfile",
                   branch: ENV["fastlane_remote_branch"])
 end
 
