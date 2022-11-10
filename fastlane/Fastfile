@@ -3,17 +3,12 @@ default_platform(:ios)
 if ENV["local_fastlane"] == 'true'  
   import "#{ENV['local_fastlane_dir']}/fastlane/FastfileAppStore"
   import "#{ENV['local_fastlane_dir']}/fastlane/FastfileCertificates"
-  # Specific projects
-  # import "#{ENV['local_fastlane_dir']}/#{ENV["fastlane-project"]}/Fastfile"
-  # import "#{ENV['local_fastlane_dir']}/fastlane-tk/Fastfile"
+  # Specific project
+  import "#{ENV['local_fastlane_dir']}/#{ENV["fastlane_project"]}/Fastfile"
 else 
-  # import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
-  #                 path: "#{ENV["fastlane-project"]}/Fastfile",
-  #                 branch: ENV["fastlane_remote_branch"])
-
-  # import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
-  #                 path: "fastlane-tk/Fastfile",
-  #                 branch: ENV["fastlane_remote_branch"])
+  import_from_git(url: "git@github.com:mikelabraca/shared-fastlane.git",
+                  path: "#{ENV["fastlane_project"]}/Fastfile",
+                  branch: !(ENV["fastlane_remote_branch"] ||= "").empty? ? ENV["fastlane_remote_branch"] : "main")
 end
 
 platform :ios do
