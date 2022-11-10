@@ -1,15 +1,15 @@
 module Fastlane
   module Actions
 
-    class SharedGpAction < Action
+    class AppStoreConnectAuthenticationAction < Action
       def self.run(params)
-        UI.message "🟢 shared GP action"
+        UI.message "🟢 app store connect authentication action"
       end
 
       # Documentation
 
       def self.description
-        'Shared GP action'
+        'Shared action'
       end
 
       def self.is_supported?(platform)

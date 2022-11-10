@@ -3,7 +3,7 @@ module Fastlane
 
     class SharedAction < Action
       def self.run(params)
-        puts " 🟢 shared action"
+        UI.message "🟢 shared action"
       end
 
       # Documentation
